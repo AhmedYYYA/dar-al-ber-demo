@@ -96,8 +96,33 @@ small, [dir="ltr"] strong { font-family: inherit; }
 .site-header.is-scrolled { box-shadow: var(--shadow-md); }
 .header-inner { display: flex; align-items: center; gap: var(--space-2); padding-block: 10px; }
 .brand { display: flex; align-items: center; gap: 12px; }
-.brand-logo { width: 52px; height: 52px; object-fit: contain; }
-.brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.48);
+  border: 1px solid rgba(212,178,104,0.18);
+  border-radius: 18px;
+  padding: 6px 10px;
+  box-shadow: 0 6px 18px rgba(20,51,43,0.055);
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.brand:hover {
+  background: rgba(255,255,255,0.72);
+  box-shadow: 0 10px 26px rgba(20,51,43,0.09);
+  transform: translateY(-1px);
+}
+
+.brand-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.72);
+  padding: 4px;
+  box-shadow: inset 0 0 0 1px rgba(212,178,104,0.16);
+}
 .brand-text strong { font-family: var(--font-head); font-size: 1.02rem; color: var(--green-900); }
 .brand-text small { color: var(--ink-soft); font-size: 0.72rem; font-family: var(--font-latin); }
 
@@ -723,6 +748,14 @@ body.preload .reveal { transition-delay: 0.15s; }
 
 /* ---- Visibility safety net ---- */
 /* Logos should always be visible regardless of reveal state */
-.brand-logo, .hero-logo, .footer-logo { opacity: 1 !important; transform: none !important; }
+.brand-logo,
+.footer-logo {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.hero-logo-base {
+  opacity: 1;
+}
 /* Make metric cards visible by default; JS will animate the numbers */
 .metric-card { opacity: 1 !important; transform: none !important; }
